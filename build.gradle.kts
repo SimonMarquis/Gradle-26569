@@ -8,6 +8,13 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    // This is breaking the build
+    exclusiveContent {
+        forRepositories(maven("https://example.org"))
+        filter {
+            includeGroupAndSubgroups("foo.bar")
+        }
+    }
 }
 
 dependencies {
